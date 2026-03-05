@@ -1,82 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Invitación</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Arial;
-text-align:center;
-background:#f5f5f5;
-}
-
-.pantalla{
-display:none;
-height:100vh;
+font-family:Arial, sans-serif;
+background:#000;
+display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
+height:100vh;
+overflow:hidden;
 }
 
-.activa{
+.container{
+width:100%;
+max-width:420px;
+height:100vh;
+position:relative;
+}
+
+.screen{
+position:absolute;
+width:100%;
+height:100%;
 display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+transition:opacity 0.8s;
+}
+
+.hidden{
+opacity:0;
+pointer-events:none;
 }
 
 img{
-max-width:90%;
-border-radius:10px;
+width:100%;
+height:auto;
 }
 
 button{
-padding:15px 25px;
 margin-top:20px;
+padding:15px 30px;
 font-size:18px;
-cursor:pointer;
 border:none;
-border-radius:8px;
-background:#000;
-color:white;
+border-radius:30px;
+background:white;
+color:black;
+cursor:pointer;
 }
 
 .botones{
-margin-top:20px;
+position:absolute;
+bottom:80px;
+display:flex;
+flex-direction:column;
+gap:15px;
 }
 
 .botones a{
-display:block;
-margin:10px;
-padding:12px;
-background:black;
-color:white;
 text-decoration:none;
-border-radius:6px;
+background:white;
+color:black;
+padding:12px 25px;
+border-radius:20px;
+font-weight:bold;
+text-align:center;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div id="pantalla1" class="pantalla activa">
+<div class="container">
 
-<img src="https://via.placeholder.com/400x500?text=Sobre+Cerrado">
+<!-- Pantalla 1 -->
 
-<button onclick="abrirInvitacion()">Abrir invitación</button>
+<div id="pantalla1" class="screen">
+
+<img src="sobre.jpg">
+
+<button onclick="abrir()">Abrir invitación</button>
 
 </div>
 
-<div id="pantalla2" class="pantalla">
+<!-- Pantalla 2 -->
 
-<img src="https://via.placeholder.com/400x500?text=Invitacion+Abierta">
+<div id="pantalla2" class="screen hidden">
+
+<img src="invitacion.jpg">
 
 <div class="botones">
 
 <a href="https://maps.google.com" target="_blank">Ver ubicación</a>
 
-<a href="https://wa.me/" target="_blank">Confirmar asistencia</a>
+<a href="https://wa.me/573000000000" target="_blank">Confirmar asistencia</a>
+
+</div>
 
 </div>
 
@@ -84,14 +115,16 @@ border-radius:6px;
 
 <script>
 
-function abrirInvitacion(){
+function abrir(){
 
-document.getElementById("pantalla1").style.display="none";
-document.getElementById("pantalla2").style.display="flex";
+document.getElementById("pantalla1").classList.add("hidden");
+
+document.getElementById("pantalla2").classList.remove("hidden");
 
 }
 
 </script>
 
 </body>
+
 </html>
