@@ -5,6 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
 <title>Invitación</title>
 
 <style>
@@ -57,6 +61,15 @@ font-size:18px;
 cursor:pointer;
 }
 
+.click-area{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+cursor:pointer;
+}
+
 </style>
 
 </head>
@@ -71,7 +84,7 @@ cursor:pointer;
 
 <img src="Portada invitacion 1.jpg">
 
-<button onclick="abrir()">Abrir invitación</button>
+<div class="click-area" onclick="abrir()"></div>
 
 </div>
 
